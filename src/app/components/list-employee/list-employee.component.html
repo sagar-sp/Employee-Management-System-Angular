@@ -1,0 +1,27 @@
+<div class="comtaner-fluid">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Sr.No</th>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Employee Salary</th>
+        <th scope="col">Employee Age</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{employee.employee_name}}</td>
+        <td>{{employee.employee_salary}}</td>
+        <td>{{employee.employee_age}}</td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-warning" (click)="onEdit(employee.id)">Edit</button>&nbsp;
+              <button type="button" class="btn btn-danger" >Delete</button>
+            </div>
+          </td>
+    </tr>
+    </tbody>
+    </table>
+</div>
