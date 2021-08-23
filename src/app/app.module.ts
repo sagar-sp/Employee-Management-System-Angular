@@ -14,6 +14,8 @@ import { ListEmployeeComponent } from './components/list-employee/list-employee.
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PayrollEmployeeComponent } from './components/payroll-employee/payroll-employee.component';
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from 'guards/auth.guard';
 
 
 const appRoutes:Routes=[
@@ -23,16 +25,23 @@ const appRoutes:Routes=[
     pathMatch : 'full'
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path : 'home',
-    component : ListEmployeeComponent 
+    component : ListEmployeeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path : 'add-employee',
-    component : AddEmployeeComponent
+    component : AddEmployeeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path : 'edit-employee/:empId',
-    component: EditEmployeeComponent
+    component: EditEmployeeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path : '**',
@@ -49,7 +58,8 @@ const appRoutes:Routes=[
     NavbarComponent,
     PayrollEmployeeComponent,
     EditEmployeeComponent,
-    CharOnly
+    CharOnly,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
