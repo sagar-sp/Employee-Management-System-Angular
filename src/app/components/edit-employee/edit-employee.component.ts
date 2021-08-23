@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeListService } from 'src/app/Services/employeeList.service';
 
@@ -9,18 +10,29 @@ import { EmployeeListService } from 'src/app/Services/employeeList.service';
 })
 export class EditEmployeeComponent {
   employeeDetails:any;
+  editForm:any;
+
   constructor(
     private employeeService : EmployeeListService,
     private activateRoute : ActivatedRoute,
     private router : Router
   )
   {
+    this.editForm = new FormGroup({
+      name : new FormControl(),
+      salary : new FormControl(),
+      age : new FormControl()
+    });
+
     this.activateRoute.paramMap
     .subscribe(response=>{
       const employeeId = response.get('empId');
       this.getEmployeeDetails(employeeId);
       }
     )
+  }
+  editEmployee(){
+    alert("edit");
   }
   getEmployeeDetails(id:any)
   {

@@ -5,3 +5,6 @@
 .valid {
     border-left: green 5px solid;
 }
+.addwidth{
+    width: 100%;
+}

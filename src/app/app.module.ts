@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CharOnly } from './directives/char-only.directive';
 
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { ContractEmployeeComponent } from './components/contract-employee/contract-employee.component';
@@ -47,7 +48,8 @@ const appRoutes:Routes=[
     ListEmployeeComponent,
     NavbarComponent,
     PayrollEmployeeComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    CharOnly
   ],
   imports: [
     BrowserModule,
